@@ -1,0 +1,41 @@
+<div id="drawer" class="invisible absolute top-0 min-h-screen h-screen z-20 flex flex-col bg-gray-300 w-64 z-50">
+    <div id="drawer-header" class="flex flex-row h-12 p-3 bg-red-300">
+        <div class="flex flex-1">
+            <h3 class="font-bold">Cali's Blog</h3>
+        </div>
+        <button 
+            type="button"
+            class="relative rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            onclick="toggleDrawer(event);" 
+        >
+            <svg class="size-6 bg-none text-white fill-current" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+        </button>        
+    </div>
+    <div>
+        <nav class="mt-2 px-2 font-medium">
+            <div>
+                <h3 class="mb-1 pl-2">Computer Science</h3>
+            </div>
+            <div>
+                <h3 class="mb-1 pl-2">Math</h3>
+            </div>
+        </nav>
+    </div>
+    <script>
+        const toggleDrawer = (e) => {
+          e.stopPropagation();
+          const drawer = document.getElementById('drawer');
+          const hasInvisible = drawer.classList.contains("invisible");
+          !hasInvisible && drawer.classList.add("invisible");
+          hasInvisible && drawer.classList.remove("invisible");
+        }
+        document.addEventListener("click", (e) => {
+          const drawer = document.getElementById("drawer");
+          if (!drawer.classList.contains("invisible") && !drawer.contains(e.target)){
+            drawer.classList.add("invisible");
+          }
+        });
+    </script>  
+</div>

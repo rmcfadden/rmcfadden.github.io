@@ -6,11 +6,16 @@
     <link rel="stylesheet" href="/assets/css/dist-style.css">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <style>
+      div.MathJax_Display {
+        margin: 0;
+      }
+    </style>
   </head>
-  <body class="p-0 m-0">    
-    <div class="flex flex-col min-h-screen h-screen overflow-none">
-      <header class="sticky top-0 h-12 z-50">
-        <nav class="relative flex h-12 p-0 m-0">
+  <body>    
+    <div class="flex flex-col min-h-screen h-screen overflow-hidden p-0 m-0">
+      <header class="sticky top-0 h-12 z-50 bg-indigo-300">
+        <nav class="relative flex h-12">
           <div class="flex flex-1 p-2 items-center justify-center sm:items-stretch sm:justify-start">
             <button type="button" class="items-center align-middle text-sm font-medium" onclick="toggleDrawer(event);">
               <div class="bg inline-flex items-center justify-center px-1 py-1 align-middle text-sm font-medium">
@@ -26,48 +31,27 @@
             </div>
           </div>
         </nav>
-      
-        <div id="drawer" class="invisible absolute top-0 min-h-screen h-screen z-20 flex bg-gray-300 w-64">
-          <button type="button" class="relative rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-            <span class="absolute -inset-2.5"></span>
-            <span class="sr-only">Close panel</span>
-            <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-            </svg>
-          </button>  
-          <h2>My Blog</h2>
-          <nav class="space-y-6  px-2 text-sm font-medium">
-            <div>
-              <h3 class="mb-1 pl-2">Math</h3>
-            </div>
-            <div>
-              <h3 class="mb-1 pl-2">Math1</h3>
-            </div>
-            <div>
-              <h3 class="mb-1 pl-2">Math2</h3>
-            </div>
-          </nav>
-        </div>
-
       </header>
       <main class="flex-1 overflow-y-auto">         
           {{ content }}
       </main>
       <footer class="sticky p-4 bottom-0 w-full text-center border-t bg-gray-300">some footer</footer>
     </div>
-    <script>
-      const toggleDrawer = (e) => {
-        e.stopPropagation();
-        const drawer = document.getElementById('drawer');
-        drawer.classList.remove("invisible");
-      }
-      document.addEventListener("click", (e) => {
-        const drawer = document.getElementById("drawer");
-        if (!drawer.classList.contains("invisible") && !drawer.contains(e.target)){
-          drawer.classList.add("invisible");
-        }
+
+    {% include drawer.html %}
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        prefer: {
+          Chrome: "CommonHTML"
+        },
+        jax: ["input/TeX", "output/HTML-CSS"],
+
+        tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        "HTML-CSS": { color: "red"}
+        },
       });
     </script>
-  
   </body>
 </html>
