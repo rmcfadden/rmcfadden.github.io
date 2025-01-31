@@ -9,6 +9,10 @@ $$e^{iΘ} = cosΘ + isinΘ$$
 
 is often considered the most beautiful formula in mathemetics but it's also very useful at deriving trigommetry identities. This makes sense considering that Euler's Formula lives in the conmplex plane, where calculating rotations are as easy as multiplication, and the fact that many trigonmentric identies involved adding angles, which are effectively rotations.
 
+```
+ASFDADSFASDFASASDF
+```
+
 $$e^{i\alpha} * e^{i\beta} = ( cos(\alpha) + isin(\alpha) ) * ( cos(\beta) + isin(\beta) )$$
 
 FOIL this out:<br>
